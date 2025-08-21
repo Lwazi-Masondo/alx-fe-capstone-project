@@ -1,5 +1,3 @@
-import "/src/styles/App.css";
-
 function Footer() {
   return (
     <footer className=" flex flex-col md:flex-row gap-5 justify-between py-2.5 px-5 text-center items-center bg-amber-300 w-full">
