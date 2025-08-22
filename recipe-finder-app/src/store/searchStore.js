@@ -9,13 +9,15 @@ const useSearchStore = create((set) => ({
 
   //function to fetch meals from the api
   fetchMeals: async () => {
-    set({ meals: [] }); //clear previous result
-    set((state) => {
-      if (!state.query.trim()) return { meals: [] }; //no query
-    });
+    const currentQuery = useSearchStore.getState().query.trim();
+
+    if (!currentQuery) {
+      set({ meals: [] });
+      return;
+    }
 
     try {
-      const results = await fetchRecipes(useSearchStore.getState().query);
+      const results = await fetchRecipes(currentQuery);
       set({ meals: results });
     } catch (error) {
       console.error("Error fetching meals:", error);
