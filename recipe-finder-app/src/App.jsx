@@ -1,8 +1,10 @@
 import "/src/styles/App.css";
+import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import RecipeResults from "./components/RecipeResults";
+import RecipeDetails from "./components/RecipeDetails";
 
 function App() {
   const handleSearch = (q) => {
@@ -13,9 +15,11 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <h1 className="text-blue-300">Render</h1>
         <Search onSubmit={handleSearch} />
-        <RecipeResults />
+        <Routes>
+          <Route path="/" element={<RecipeResults />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
       </main>
       <Footer />
     </div>

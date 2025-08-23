@@ -11,17 +11,20 @@ function Search({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-none flex justify-center gap-2">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-none flex justify-center gap-2 m-5"
+    >
       <input
         type="text"
         placeholder="Search Recipe.."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className=" border-2 border-lime-200  w-3xs md:w-2xl lg:w-4xl rounded bg-white p-2 "
+        className=" border-4 border-lime-200  w-3xs md:w-2xl lg:w-4xl rounded bg-white p-2 focus:border-4 focus:border-orange-500 hover:border-orange-500"
       />
       <button
         type="submit"
-        className="bg-lime-200 px-2.5 py-2.5 rounded w-20 cursor-pointer hover:bg-lime-500/75"
+        className="bg-lime-200 px-2.5 py-2.5 rounded w-20 cursor-pointer hover:bg-orange-500"
       >
         Search
       </button>
