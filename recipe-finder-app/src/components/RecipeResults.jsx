@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 function RecipeResults() {
   const meals = useSearchStore((s) => s.meals);
   const query = useSearchStore((s) => s.meals);
+  const recipes = useSearchStore((s) => s.recipes);
+  const selectedCategory = useSearchStore((s) => s.selectedCategory);
 
   //User hasn't typed anything yet
   if (!query) {
