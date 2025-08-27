@@ -27,12 +27,19 @@ function RecipeDetails() {
 
   return (
     <>
-      <Link to={"/"}>
-        <div className="text-orange-500 font-bold  ml-10 lg:ml-20">
-          {`<`} BACK
-        </div>
-      </Link>
-
+      {" "}
+      <div className="mt-10 w-72">
+        <Link to={"/search"}>
+          <div className="text-orange-500  font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} BACK TO SEARCH
+          </div>
+        </Link>
+        <Link to={"/favourites"}>
+          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} BACK TO FAVOURITES
+          </div>
+        </Link>
+      </div>
       <div className="text-white text-center">
         <h1 className="text-center font-bold text-2xl text-orange-500 my-10">
           {meal.strMeal}
@@ -42,7 +49,7 @@ function RecipeDetails() {
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
-              className="w-52 md:w-60 lg:w-96 rounded 
+              className="w-52 md:w-60 lg:w-96 rounded-xl 
       "
             />
             <figcaption className="text-lime-200 ">

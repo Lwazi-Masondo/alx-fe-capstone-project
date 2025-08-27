@@ -1,20 +1,43 @@
 import "/src/styles/App.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="flex gap-10">
-      <Link to="/">
-        <span className="btn-primary">Home</span>
-      </Link>
-      <Link to="/search">
-        <span className="btn-primary">Search</span>
-      </Link>
+    <nav className="flex gap-5">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
+        }
+      >
+        <span className="">Home</span>
+      </NavLink>
+      <NavLink
+        to="/search"
+        className={({ isActive }) =>
+          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
+        }
+      >
+        <span>Search</span>
+      </NavLink>
 
-      <span className="btn-primary">Planner</span>
-      <Link to="/favourites">
-        <span className="btn-primary">Favourite</span>
-      </Link>
+      {/* <NavLink
+        to="#"
+        className={({ isActive }) =>
+          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
+        }
+      >
+        <span>Planner</span>
+      </NavLink> */}
+
+      <NavLink
+        to="/favourites"
+        className={({ isActive }) =>
+          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
+        }
+      >
+        <span>Favourite</span>
+      </NavLink>
     </nav>
   );
 }

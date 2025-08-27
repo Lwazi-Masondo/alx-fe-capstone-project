@@ -43,16 +43,16 @@ function RecipeResults() {
         return (
           <li
             key={meal.idMeal}
-            className="text-white text-center text-sm  w-40 h-auto m-5 rounded relative cursor-pointer border-2 border-orange-500 "
+            className="text-white text-center text-sm  w-40 h-auto m-5 rounded-2xl relative cursor-pointer border-2 border-orange-500 "
           >
             {" "}
             <Link to={`/recipe/${meal.idMeal}`}>
               <img
                 src={meal.strMealThumb}
                 alt={meal.strMeal}
-                className="w-40 h-40 mx-auto rounded  drop-shadow-2xl "
+                className="w-40 h-40 mx-auto rounded-2xl  drop-shadow-2xl hover:opacity-60 "
               />
-              <div className="absolute inset-x-0 bottom-0 bg-black/70 rounded-b  ">
+              <div className="absolute inset-x-0 bottom-0 bg-black/70 rounded-b-2xl p-2">
                 <h3 className="font-bold">{meal.strMeal}</h3>
                 <p>{meal.strCategory}</p>
               </div>
@@ -63,7 +63,7 @@ function RecipeResults() {
               onClick={() =>
                 isFavourite ? removeFavourite(meal.idMeal) : addFavourite(meal)
               }
-              className="w-6 h-6 absolute top-2 right-2 cursor-pointer"
+              className="w-6 h-6 absolute top-2 right-2 cursor-pointer rounded"
             />
           </li>
         );
