@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 function RecipeResults() {
   const meals = useSearchStore((s) => s.meals);
   const query = useSearchStore((s) => s.query);
+  const selectedCategory = useSearchStore((s) => s.selectedCategory);
 
-  //User hasn't typed anything yet
-  if (!query) {
-    return <p>Start typing to search for a meal...</p>;
+  //No search and no category yet - show message
+  if (!query && !selectedCategory) {
+    return <p>Start typing to search for a meal or pick a category...</p>;
   }
 
   //User searched but, api returned no results

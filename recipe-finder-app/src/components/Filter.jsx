@@ -26,7 +26,10 @@ function FilterFoods() {
           {categories.map((cat) => (
             <li
               key={cat.strCategory}
-              onClick={() => filterByCategory(cat.strCategory)}
+              onClick={() => {
+                filterByCategory(cat.strCategory);
+                setIsOpen(false);
+              }}
               className="hover:bg-orange-500 cursor-pointer text-center text-lime-200 m-auto"
             >
               {cat.strCategory}
