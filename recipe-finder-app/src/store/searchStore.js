@@ -8,7 +8,7 @@ import {
 const useSearchStore = create((set) => ({
   query: "", //to capture user input
   meals: [],
-  categries: [],
+  categories: [],
   recipes: [],
   selectedCategory: "",
 
@@ -34,15 +34,27 @@ const useSearchStore = create((set) => ({
 
   //fetch categories once
   loadCategories: async () => {
-    const data = await fetchCategories();
-    set({ categories: data });
+    try {
+      const data = await fetchCategories();
+      console.log("Fetched categories:", data);
+      set({ categories: data });
+    } catch (error) {
+      console.error("Error Loading categories:", error);
+    }
   },
-
   //fetch meals by category
   filterByCategory: async (category) => {
-    if (!category) return;
-    const results = await fetchByCategory(category);
-    set({ recipes: results, selectedCategory: category });
+    if (!category) {
+      set({ meals: [] }); //"Reset when all categories is chosen"
+      return;
+    }
+    try {
+      const results = await fetchByCategory(category);
+      set({ meals: results, selectedCategory: category });
+    } catch (error) {
+      console.error("Error filtering by category:", error);
+      set({ meals: [] });
+    }
   },
 }));
 

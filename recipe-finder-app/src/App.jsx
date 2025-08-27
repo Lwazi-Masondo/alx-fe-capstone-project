@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import RecipeResults from "./components/RecipeResults";
 import RecipeDetails from "./components/RecipeDetails";
-import Filter from "./components/Filter";
+import FilterFoods from "./components/Filter";
 
 function App() {
   const handleSearch = (q) => {
@@ -17,7 +17,8 @@ function App() {
       <Header />
       <main className="flex-1">
         <Search onSubmit={handleSearch} />
-        <Filter />
+        <FilterFoods />
+
         <Routes>
           <Route path="/" element={<RecipeResults />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
