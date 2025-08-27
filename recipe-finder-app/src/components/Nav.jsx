@@ -1,11 +1,15 @@
 import "/src/styles/App.css";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <nav className="flex gap-10">
-      <span className="btn-primary">Search</span>
       <span className="btn-primary">Planner</span>
-      <span className="btn-primary">Favourite</span>
+      <Link to="/favourites">
+        <span className="btn-primary hover:bg-orange-500 hover:cursor-pointer">
+          Favourite
+        </span>
+      </Link>
     </nav>
   );
 }

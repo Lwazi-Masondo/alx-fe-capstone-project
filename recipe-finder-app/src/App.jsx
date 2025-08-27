@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import RecipeResults from "./components/RecipeResults";
 import RecipeDetails from "./components/RecipeDetails";
 import FilterFoods from "./components/Filter";
+import Favourites from "./components/Favourites";
 
 function App() {
   const handleSearch = (q) => {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<RecipeResults />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route path="/favourites" element={<Favourites />} />
         </Routes>
       </main>
       <Footer />

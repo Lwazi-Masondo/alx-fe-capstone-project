@@ -11,6 +11,7 @@ const useSearchStore = create((set) => ({
   categories: [],
   recipes: [],
   selectedCategory: "",
+  favourites: [],
 
   setQuery: (q) => set({ query: q }),
 
@@ -56,6 +57,19 @@ const useSearchStore = create((set) => ({
       set({ meals: [] });
     }
   },
+  addFavourite: (meal) =>
+    set((state) => {
+      //prevents duplicates
+      if (state.favourites.find((fav) => fav.idMeal === meal.idMeal)) {
+        return state;
+      }
+      return { favourites: [...state.favourites, meal] };
+    }),
+
+  removeFavourite: (idMeal) =>
+    set((state) => ({
+      favourites: state.favourites.filter((fav) => fav.idMeal !== idMeal),
+    })),
 }));
 
 export default useSearchStore;
