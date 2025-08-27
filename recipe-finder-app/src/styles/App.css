@@ -21,6 +21,11 @@ footer {
   text-align: center;
 }
 
+.btn-primary:hover {
+  cursor: pointer;
+  background-color: rgba(255, 68, 0, 0.9);
+}
+
 header {
   border-bottom: 2px solid #cbf078;
 }

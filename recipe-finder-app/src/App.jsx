@@ -3,10 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import RecipeResults from "./components/RecipeResults";
 import RecipeDetails from "./components/RecipeDetails";
-import FilterFoods from "./components/Filter";
 import Favourites from "./components/Favourites";
+import Home from "./components/Home";
 
 function App() {
   const handleSearch = (q) => {
@@ -17,12 +16,10 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <Search onSubmit={handleSearch} />
-        <FilterFoods />
-
         <Routes>
-          <Route path="/" element={<RecipeResults />} />
+          <Route path="/" element={<Home />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route path="/search" element={<Search onSubmit={handleSearch} />} />
           <Route path="/favourites" element={<Favourites />} />
         </Routes>
       </main>
