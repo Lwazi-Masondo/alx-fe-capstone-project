@@ -12,6 +12,7 @@ const useSearchStore = create((set) => ({
   recipes: [],
   selectedCategory: "",
   favourites: [],
+  plans: [],
 
   setQuery: (q) => set({ query: q }),
 
@@ -70,6 +71,44 @@ const useSearchStore = create((set) => ({
     set((state) => ({
       favourites: state.favourites.filter((fav) => fav.idMeal !== idMeal),
     })),
+
+  // planner
+  //Add a new plan
+  addPlan: (title, date) =>
+    set((state) => ({
+      plans: [...state.plans, { title, date, recipes: [], recipeInput: "" }],
+    })),
+
+  setRecipeInput: (planIndex, value) =>
+    set((state) => {
+      const updatedPlans = [...state.plans];
+      updatedPlans[planIndex].recipeInput = value;
+      return { plans: updatedPlans };
+    }),
+
+  addRecipe: (planIndex) =>
+    set((state) => {
+      const updatedPlans = [...state.plans];
+      const plan = updatedPlans[planIndex];
+      if (!plan.recipeInput) return { plans: updatedPlans };
+      plan.recipes.push(plan.recipeInput);
+      plan.recipeInput = "";
+      return { plans: updatedPlans };
+    }),
+
+  deleteRecipe: (planIndex, recipeIndex) =>
+    set((state) => {
+      const updatedPlans = [...state.plans];
+      updatedPlans[planIndex].recipes.splice(recipeIndex, 1);
+      return { plans: updatedPlans };
+    }),
+
+  deletePlan: (planIndex) =>
+    set((state) => {
+      const updatedPlans = [...state.plans];
+      updatedPlans.splice(planIndex, 1);
+      return { plans: updatedPlans };
+    }),
 }));
 
 export default useSearchStore;
