@@ -16,7 +16,7 @@ function Search({ onSubmit }) {
     <div className="flex-1">
       <form
         onSubmit={handleSubmit}
-        className="bg-none flex justify-center gap-2 m-5"
+        className="bg-none flex justify-center gap-2 m-5 mt-10"
       >
         <input
           type="text"

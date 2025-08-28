@@ -7,9 +7,12 @@ function Favourites() {
 
   if (favourites.length === 0) {
     return (
-      <p className="text-center font-bold text-white text-2xl">
-        No favourites yet!
-      </p>
+      <div>
+        <p className="text-center font-bold text-white text-2xl mt-20">
+          No favourites yet!
+        </p>
+        <img src="empty-favourites.png" alt="Empty bowl" className="m-auto" />
+      </div>
     );
   }
   return (
@@ -17,7 +20,7 @@ function Favourites() {
       <h1 className="text-center text-orange-500  font-bold text-2xl my-10">
         Favourites
       </h1>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-auto">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-auto justify-items-center">
         {favourites.map((meal) => (
           <li
             key={meal.idMeal}
