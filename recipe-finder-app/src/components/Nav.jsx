@@ -25,14 +25,14 @@ function Nav() {
           <span>Search</span>
         </NavLink>
 
-        {/* <NavLink
-        to="#"
-        className={({ isActive }) =>
-          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
-        }
-      >
-        <span>Planner</span>
-      </NavLink> */}
+        <NavLink
+          to="/planner"
+          className={({ isActive }) =>
+            `transition - colors ${isActive ? "act-button" : "btn-primary"}`
+          }
+        >
+          <span>Planner</span>
+        </NavLink>
 
         <NavLink
           to="/favourites"
@@ -98,15 +98,17 @@ function Nav() {
             <span>Search</span>
           </NavLink>
 
-          {/* <NavLink
-        to="#"
-        className={({ isActive }) =>
-          `transition - colors ${isActive ? "act-button" : "btn-primary"}`
-        }
-        onClick={() => setIsOpen(false)}
-      >
-        <span>Planner</span>
-      </NavLink> */}
+          <NavLink
+            to="/planner"
+            className={({ isActive }) =>
+              `transition - colors ${
+                isActive ? "act-button-sec" : "btn-secondary"
+              }`
+            }
+            onClick={() => setIsOpen(false)}
+          >
+            <span>Planner</span>
+          </NavLink>
 
           <NavLink
             to="/favourites"
