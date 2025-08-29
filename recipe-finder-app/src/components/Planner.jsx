@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import useSearchStore from "../store/searchStore";
+import { Link } from "react-router-dom";
 
 function Planner() {
   // Store state & actions
   const plans = useSearchStore((state) => state.plans);
   const addPlan = useSearchStore((state) => state.addPlan);
   const setRecipeInput = useSearchStore((state) => state.setRecipeInput);
-  const addRecipe = useSearchStore((state) => state.addRecipe);
-  const deleteRecipe = useSearchStore((state) => state.deleteRecipe);
   const deletePlan = useSearchStore((state) => state.deletePlan);
 
   // Local state for plan inputs
@@ -18,14 +17,7 @@ function Planner() {
   useEffect(() => {
     const storedPlans = localStorage.getItem("mealPlans");
     if (storedPlans) {
-      const parsed = JSON.parse(storedPlans);
-      parsed.forEach((plan) => addPlan(plan.title, plan.date));
-      parsed.forEach((plan, i) => {
-        plan.recipes.forEach((recipe) => {
-          setRecipeInput(i, recipe);
-          addRecipe(i);
-        });
-      });
+      useSearchStore.getState().setPlans(JSON.parse(storedPlans));
     }
   }, []);
 
@@ -43,7 +35,7 @@ function Planner() {
   };
 
   return (
-    <div className="bg-white p-5">
+    <div className=" bg-black p-5">
       <h1 className="text-orange-500 text-center font-bold text-3xl m-10">
         Meal Planner
       </h1>
@@ -58,13 +50,13 @@ function Planner() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Plan title"
-          className="border-2 border-lime-200 p-2 rounded"
+          className="border-2 border-lime-200 p-2 rounded  bg-white"
         />
         <input
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="border-2 border-lime-200 p-2 rounded w-40"
+          className="border-2 border-lime-200 p-2 rounded w-40  bg-white"
         />
         <button
           type="submit"
@@ -79,16 +71,17 @@ function Planner() {
         {plans.map((plan, index) => (
           <div
             key={index}
-            className="mb-4 p-3 border-4 border-lime-200 rounded"
+            className="mb-4 p-3 border-4 border-lime-200 rounded-2xl w-52  bg-black"
           >
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center text-center text-white mb-2 flex-col gap-5">
               <div>
                 <h2 className="font-bold text-xl">{plan.title}</h2>
-                <p className="text-gray-500">{plan.date}</p>
+                <p>{plan.date}</p>
               </div>
-              <div>
-                <img src="/add.png" alt="Add Recipe" />
-              </div>
+              <Link to={"/plan"}>
+                <img src="/add.png" alt="Add Recipe" className="w-10" />
+              </Link>
+
               <button
                 onClick={() => deletePlan(index)}
                 className="text-red-500 font-bold px-2 py-1 hover:bg-red-100 rounded"

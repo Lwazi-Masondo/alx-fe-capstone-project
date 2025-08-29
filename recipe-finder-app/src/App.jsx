@@ -7,6 +7,7 @@ import RecipeDetails from "./components/RecipeDetails";
 import Favourites from "./components/Favourites";
 import Home from "./components/Home";
 import Planner from "./components/Planner";
+import Plan from "./components/Plan";
 
 function App() {
   const handleSearch = (q) => {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="/search" element={<Search onSubmit={handleSearch} />} />
           <Route path="/planner" element={<Planner />} />
+          <Route path="/plan" element={<Plan />} />
           <Route path="/favourites" element={<Favourites />} />
         </Routes>
       </main>
