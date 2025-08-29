@@ -16,7 +16,7 @@ const useSearchStore = create(
       selectedCategory: "",
       favourites: [],
       plans: [],
-      mealPlan:[],
+      mealPlan: [],
 
       setQuery: (q) => set({ query: q }),
 
@@ -82,38 +82,39 @@ const useSearchStore = create(
 
       // planner
       //Add a new plan
-      addPlan: (title.date) => set((state)=>({
-        plans: [...state.plans, {title, date, recipes: []}],
-      })),
+      addPlan: (title, date) =>
+        set((state) => ({
+          plans: [...state.plans, { title, date, recipes: [] }],
+        })),
 
       //delete plan
-      deletePlan: (planIndex) => set((state)=> {
-        const updated = [...state.plans];
-        updated.splice(planIndex, 1);
-        return {plans:updated};
-      }),
+      deletePlan: (planIndex) =>
+        set((state) => {
+          const updated = [...state.plans];
+          updated.splice(planIndex, 1);
+          return { plans: updated };
+        }),
 
       //Add/Remove recipe inside a plan
-      addRecipeToPlan: (planIndex, meal) => set((state)=>{
-        const updated = [...state.plans];
-        const plan = updated[planIndex];
-        if(!plan.recipes.find((r)=> r.idMeal === meal.idMeal)) {
-          plan.recipes.push(meal);
-        }
-        return {plans:updated};
-      }),
+      addRecipeToPlan: (planIndex, meal) =>
+        set((state) => {
+          const updated = [...state.plans];
+          const plan = updated[planIndex];
+          if (!plan.recipes.find((r) => r.idMeal === meal.idMeal)) {
+            plan.recipes.push(meal);
+          }
+          return { plans: updated };
+        }),
 
-      removeRecipeFromPlan: (planIndex,idMeal) => set((state)=> {
-        const updated = [...state.plans];
-        updated[planIndex].recipes = updated[planIndex].recipes.filter(
-          (r)=> r.idMeal !== idMeal);
-          return {plans:updated}
+      removeRecipeFromPlan: (planIndex, idMeal) =>
+        set((state) => {
+          const updated = [...state.plans];
+          updated[planIndex].recipes = updated[planIndex].recipes.filter(
+            (r) => r.idMeal !== idMeal
+          );
+          return { plans: updated };
+        }),
     }),
-      }),
-
-
-
-
 
     //partialize so only plans and favourites are stored not api queries or results
     {
