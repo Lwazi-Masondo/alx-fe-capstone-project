@@ -3,20 +3,15 @@ import { Link } from "react-router-dom";
 
 function RecipeResultsPlan({ planIndex }) {
   const meals = useSearchStore((s) => s.meals);
-  const query = useSearchStore((s) => s.query);
-  const selectedCategory = useSearchStore((s) => s.selectedCategory);
   const clearMeals = useSearchStore((s) => s.clearMeals);
   const hasSearched = useSearchStore((s) => s.hasSearched);
 
-  // const addRecipeToPlan = useSearchStore((s) => s.addRecipeToPlan);
-  // const removeRecipeFromPlan = useSearchStore((s) => s.removeRecipeFromPlan);
+  const addRecipeToPlan = useSearchStore((s) => s.addRecipeToPlan);
+  const removeRecipeFromPlan = useSearchStore((s) => s.removeRecipeFromPlan);
+  const mealPlans = useSearchStore((s) => s.mealPlans);
   // const plans = useSearchStore((s) => s.plans);
 
   // const plan = plans[planIndex];
-
-  // if (!query && !selectedCategory) {
-  //   return <p>Start typing to search for a meal or pick a category...</p>;
-  // }
 
   if (!meals.length && hasSearched) {
     return (
@@ -37,13 +32,14 @@ function RecipeResultsPlan({ planIndex }) {
     <div>
       <button
         onClick={clearMeals}
-        className="bg-red-600 mx-20 mt-5 p-1 rounded text-white"
+        className="bg-red-600 mx-20 mt-5 p-1 rounded text-white sticky"
       >
         Clear results
       </button>
       <ul className="m-5 p-5 bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
         {meals.map((meal) => {
-          // const isAdded = plan.recipes.some((r) => r.idMeal === meal.idMeal);
+          //To check
+          const isAdded = mealPlans.some((m) => m.idMeal === meal.idMeal);
 
           return (
             <li
@@ -62,16 +58,16 @@ function RecipeResultsPlan({ planIndex }) {
                 </div>
               </Link>
 
-              {/* <img
-              src={isAdded ? "/trash.png" : "/add.png"}
-              alt={isAdded ? "Remove from Plan" : "Add to Plan"}
-              className="w-6 h-6 absolute top-2 right-2 cursor-pointer"
-              // onClick={() =>
-              //   isAdded
-              //     ? removeRecipeFromPlan(planIndex, meal.idMeal)
-              //     : addRecipeToPlan(planIndex, meal)
-              // }
-            /> */}
+              <img
+                src={isAdded ? "/trash.png" : "/add.png"}
+                alt={isAdded ? "Remove from Plan" : "Add to Plan"}
+                className="w-6 h-6 absolute top-2 right-2 cursor-pointer"
+                onClick={() =>
+                  isAdded
+                    ? removeRecipeFromPlan(meal.idMeal)
+                    : addRecipeToPlan(meal)
+                }
+              />
             </li>
           );
         })}

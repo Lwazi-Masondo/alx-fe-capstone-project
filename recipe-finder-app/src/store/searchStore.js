@@ -16,7 +16,7 @@ const useSearchStore = create(
       selectedCategory: "",
       favourites: [],
       plans: [],
-      mealPlan: [],
+      mealPlans: [],
 
       setQuery: (q) => set({ query: q }),
 
@@ -98,24 +98,18 @@ const useSearchStore = create(
         }),
 
       //Add/Remove recipe inside a plan
-      addRecipeToPlan: (planIndex, meal) =>
+      addRecipeToPlan: (recipe) =>
         set((state) => {
-          const updated = [...state.plans];
-          const plan = updated[planIndex];
-          if (!plan.recipes.find((r) => r.idMeal === meal.idMeal)) {
-            plan.recipes.push(meal);
+          if (state.mealPlans.find((m) => m.idMeal === recipe.idMeal)) {
+            return state;
           }
-          return { plans: updated };
+          return { mealPlans: [...state.mealPlans, recipe] };
         }),
 
-      removeRecipeFromPlan: (planIndex, idMeal) =>
-        set((state) => {
-          const updated = [...state.plans];
-          updated[planIndex].recipes = updated[planIndex].recipes.filter(
-            (r) => r.idMeal !== idMeal
-          );
-          return { plans: updated };
-        }),
+      removeRecipeFromPlan: (idMeal) =>
+        set((state) => ({
+          mealPlans: state.mealPlans.filter((m) => m.idMeal !== idMeal),
+        })),
     }),
 
     //partialize so only plans and favourites are stored not api queries or results
@@ -124,6 +118,7 @@ const useSearchStore = create(
       partialize: (state) => ({
         plans: state.plans,
         favourites: state.favourites,
+        mealPlans: state.mealPlans,
       }),
     }
   )
