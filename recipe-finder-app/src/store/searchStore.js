@@ -25,18 +25,20 @@ const useSearchStore = create(
         const currentQuery = useSearchStore.getState().query.trim();
 
         if (!currentQuery) {
-          set({ meals: [] });
+          set({ meals: [], hasSearched: true }); //searched but no query
           return;
         }
 
         try {
           const results = await fetchRecipes(currentQuery);
-          set({ meals: results });
+          set({ meals: results, hasSearched: true }); // searched
         } catch (error) {
           console.error("Error fetching meals:", error);
           set({ meals: [] });
         }
       },
+
+      clearMeals: () => set({ meals: [], hasSearched: false }),
 
       //fetch categories once
       loadCategories: async () => {

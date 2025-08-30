@@ -8,8 +8,6 @@ function Planner() {
   const addPlan = useSearchStore((state) => state.addPlan);
   const deletePlan = useSearchStore((state) => state.deletePlan);
   const deleteRecipe = useSearchStore((state) => state.deleteRecipe);
-  const setRecipeInput = useSearchStore((state) => state.setRecipeInput);
-  const addRecipe = useSearchStore((state) => state.addRecipe);
 
   // Local input for new plans
   const [title, setTitle] = useState("");
@@ -95,29 +93,6 @@ function Planner() {
                 ))}
               </ul>
             )}
-
-            {/* Add Recipe Form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                addRecipe(index);
-              }}
-              className="flex gap-2 mt-2"
-            >
-              <input
-                type="text"
-                value={plan.recipeInput || ""}
-                onChange={(e) => setRecipeInput(index, e.target.value)}
-                placeholder="Add recipe"
-                className="border-2 border-lime-200 p-2 rounded flex-1"
-              />
-              <button
-                type="submit"
-                className="bg-lime-200 px-3 py-2 rounded hover:bg-orange-500"
-              >
-                Add
-              </button>
-            </form>
           </div>
         ))}
       </div>
