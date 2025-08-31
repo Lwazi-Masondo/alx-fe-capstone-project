@@ -17,6 +17,14 @@ function Favourites() {
   }
   return (
     <div>
+      <div>
+        <Link to={"/"}>
+          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} Back
+          </div>
+        </Link>
+      </div>
+
       <h1 className="text-center text-orange-500  font-bold text-2xl my-10">
         Favourites
       </h1>

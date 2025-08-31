@@ -20,7 +20,11 @@ function RecipeDetails() {
   if (!meal)
     return (
       <div>
-        <img src="/public/search_glass.png" alt="" className="w-48 m-auto" />
+        <img
+          src="/search_glass.png"
+          alt="search glass"
+          className="w-48 m-auto"
+        />
         <p className="text-lime-500 text-center font-bold my-10">Loading...</p>
       </div>
     );
@@ -31,12 +35,17 @@ function RecipeDetails() {
       <div className="mt-10 w-72">
         <Link to={"/search"}>
           <div className="text-orange-500  font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
-            {`<`} BACK TO SEARCH
+            {`<`} SEARCH
           </div>
         </Link>
         <Link to={"/favourites"}>
           <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
-            {`<`} BACK TO FAVOURITES
+            {`<`} FAVOURITES
+          </div>
+        </Link>
+        <Link to={"/planner"}>
+          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} PLANNER
           </div>
         </Link>
       </div>

@@ -22,6 +22,14 @@ function Planner() {
 
   return (
     <div className="bg-black p-5">
+      <div>
+        <Link to={"/"}>
+          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} Back
+          </div>
+        </Link>
+      </div>
+
       <h1 className="text-orange-500 text-center font-bold text-3xl m-10">
         Meal Planner
       </h1>

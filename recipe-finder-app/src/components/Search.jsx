@@ -1,6 +1,7 @@
 import useSearchStore from "../store/searchStore";
 import FilterFoods from "./Filter";
 import RecipeResults from "./RecipeResults";
+import { Link } from "react-router-dom";
 
 function Search({ onSubmit }) {
   const query = useSearchStore((s) => s.query);
@@ -14,6 +15,14 @@ function Search({ onSubmit }) {
 
   return (
     <div className="flex-1">
+      <div>
+        <Link to={"/"}>
+          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} Back
+          </div>
+        </Link>
+      </div>
+
       <form
         onSubmit={handleSubmit}
         className="bg-none flex justify-center gap-2 m-5 mt-10"
