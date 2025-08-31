@@ -30,13 +30,13 @@ function RecipeResultsPlan({ planIndex }) {
 
   return (
     <div>
-      <button
-        onClick={clearMeals}
-        className="bg-red-600 mx-20 mt-5 p-1 rounded text-white sticky"
-      >
-        Clear results
-      </button>
       <ul className="m-5 p-5 bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <button
+          onClick={clearMeals}
+          className="bg-red-600 mx-20 mt-5 p-2 rounded text-white sticky"
+        >
+          Clear results
+        </button>
         {meals.map((meal) => {
           //To check
           const isAdded = mealPlans.some((m) => m.idMeal === meal.idMeal);

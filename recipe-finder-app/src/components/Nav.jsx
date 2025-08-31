@@ -14,7 +14,7 @@ function Nav() {
             `transition - colors ${isActive ? "act-button" : "btn-primary"}`
           }
         >
-          <span className="">Home</span>
+          <span>Home</span>
         </NavLink>
         <NavLink
           to="/search"
@@ -44,12 +44,12 @@ function Nav() {
         </NavLink>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         {/* Mobile Menu Button */}
         <div className="md:hidden mx-5 self-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex flex-col justify-between w-6 h-6 focus:outline-none"
+            className="flex flex-col justify-between w-6 h-6 focus:outline-none "
           >
             <div
               className={`block h-0.5 w-full bg-lime-200 transform transition duration-300 ease-in-out ${
@@ -71,8 +71,10 @@ function Nav() {
 
         {/* Mobile Dropdown menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mx-5 ${
-            isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mt-2 ${
+            isOpen
+              ? "max-h-60 opacity-100 "
+              : "max-h-0 opacity-0 translate-x-25"
           }`}
         >
           <NavLink

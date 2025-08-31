@@ -8,22 +8,14 @@ function RecipeResults() {
   const favourites = useSearchStore((s) => s.favourites);
   const removeFavourite = useSearchStore((s) => s.removeFavourite);
   const addFavourite = useSearchStore((s) => s.addFavourite);
+  const clearMeals = useSearchStore((s) => s.clearMeals);
+  const hasSearched = useSearchStore((s) => s.hasSearched);
 
-  //No search and no category yet - show message
-  if (!query && !selectedCategory) {
-    return <p>Start typing to search for a meal or pick a category...</p>;
-  }
-
-  //User searched but, api returned no results
-  if (!meals || meals.length === 0) {
-    //"!meals" covers the case of "null" or "undefined" result and "meals.length === 0" covers the case of an empty array.
+  // //User searched but, api returned no results
+  if (!meals.length && hasSearched) {
     return (
       <div>
-        <img
-          src="/public/empty_bowl.png"
-          alt="Empty Bowl"
-          className="w-48 m-auto"
-        />
+        <img src="/empty_bowl.png" alt="Empty Bowl" className="w-48 m-auto" />
         <p className="text-red-600 text-center font-bold">
           No meals found. Try another search.
         </p>
@@ -31,10 +23,21 @@ function RecipeResults() {
     );
   }
 
+  //No search and no category yet - show message
+  if (!meals.length && !hasSearched) {
+    return null;
+  }
+
   //User searched aand meals exist in the api
   //.map can't map over an empty array so always apply a check before.
   return (
     <ul className="m-5 p-5 bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+      <button
+        onClick={clearMeals}
+        className="bg-red-600 mx-20 mt-5 p-2 rounded text-white sticky"
+      >
+        Clear results
+      </button>
       {meals.map((meal) => {
         //check if meal is already in favourites
         const isFavourite = favourites.some(
