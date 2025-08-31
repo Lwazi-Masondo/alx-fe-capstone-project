@@ -24,7 +24,7 @@ function Planner() {
     <div className="bg-black p-5">
       <div>
         <Link to={"/"}>
-          <div className="text-orange-500 mt-5 font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
+          <div className="text-orange-500 mt-2 font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
             {`<`} Back
           </div>
         </Link>
@@ -61,7 +61,7 @@ function Planner() {
       </form>
 
       {/* Display Plans */}
-      <div className="grid grid-cols-1 md:grid-col-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 justify-items-center md:grid-col-2 lg:grid-cols-3 gap-5 mt-10 ">
         {plans.map((plan) => (
           <div
             key={plan.id}
