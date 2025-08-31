@@ -9,6 +9,14 @@ function Plan() {
   return (
     <div>
       <div>
+        <Link to={"/"}>
+          <div className="text-orange-500 mt-5 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+            {`<`} Back
+          </div>
+        </Link>
+      </div>
+
+      <div>
         <SearchForPlan />
       </div>
       {/* Display */}
