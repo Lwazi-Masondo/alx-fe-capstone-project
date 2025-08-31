@@ -86,30 +86,44 @@ const useSearchStore = create(
       //Add a new plan
       addPlan: (title, date) =>
         set((state) => ({
-          plans: [...state.plans, { title, date, recipes: [] }],
+          plans: [...state.plans, { id: Date.now(), title, date, recipes: [] }],
         })),
 
       //delete plan
-      deletePlan: (planIndex) =>
-        set((state) => {
-          const updated = [...state.plans];
-          updated.splice(planIndex, 1);
-          return { plans: updated };
-        }),
+      deletePlan: (planId) =>
+        set((state) => ({
+          plans: state.plans.filter((plan) => plan.id !== planId),
+        })),
 
       //Add/Remove recipe inside a plan
-      addRecipeToPlan: (recipe) =>
+      addRecipeToPlan: (recipe, planId) =>
         set((state) => {
-          if (state.mealPlans.find((m) => m.idMeal === recipe.idMeal)) {
-            return state;
-          }
-          return { mealPlans: [...state.mealPlans, recipe] };
+          const plan = state.plans.find((p) => p.id === planId);
+          if (!plan) return {}; // plan not found
+
+          // prevent duplicates in this plan
+          if (plan.recipes.some((r) => r.idMeal === recipe.idMeal)) return {};
+
+          const updatedPlans = state.plans.map((p) =>
+            p.id === planId ? { ...p, recipes: [...p.recipes, recipe] } : p
+          );
+
+          return { plans: updatedPlans };
         }),
 
-      removeRecipeFromPlan: (idMeal) =>
-        set((state) => ({
-          mealPlans: state.mealPlans.filter((m) => m.idMeal !== idMeal),
-        })),
+      removeRecipeFromPlan: (planId, idMeal) =>
+        set((state) => {
+          const plan = state.plans.find((p) => p.id === planId);
+          if (!plan) return {};
+
+          const updatedPlans = state.plans.map((p) =>
+            p.id === planId
+              ? { ...p, recipes: p.recipes.filter((r) => r.idMeal !== idMeal) }
+              : p
+          );
+
+          return { plans: updatedPlans };
+        }),
     }),
 
     //partialize so only plans and favourites are stored not api queries or results
@@ -118,7 +132,6 @@ const useSearchStore = create(
       partialize: (state) => ({
         plans: state.plans,
         favourites: state.favourites,
-        mealPlans: state.mealPlans,
       }),
     }
   )
