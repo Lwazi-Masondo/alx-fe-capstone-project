@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className=" flex flex-col md:flex-row gap-5 justify-between py-2.5 px-5 text-center items-center bg-amber-300 w-full">
-      <img src="/public/logo_dark.png" alt="logo" className=" w-20 md:w-28" />
+      <img src="/logo_dark.png" alt="logo" className=" w-20 md:w-28" />
       <p className="font-bold text-sm md:text-base">
         ©Pallet Planner 2025 coded by Nolwazi Masondo and open-sourced on
         <a
@@ -19,21 +19,24 @@ function Footer() {
           className="text-orange-500 hover:underline decoration-solid"
         >
           {" "}
-          Netlify
+          Vercel
         </a>
         .
       </p>
       <div className="flex flex-row gap-5">
-        <span>
-          <img
-            src="/public/linkedIn.png"
-            alt="LinkedIn icon"
-            className="w-10"
-          />
-        </span>
-        <span>
-          <img src="/public/github.png" alt="Github icon" className="w-10" />
-        </span>
+        <a href="https://www.linkedin.com/in/nolwazi-masondo/" target="_blank">
+          <span>
+            <img src="/linkedIn.png" alt="LinkedIn icon" className="w-10" />
+          </span>
+        </a>
+        <a
+          href="https://github.com/Lwazi-Masondo/alx-fe-capstone-project"
+          target="_blank"
+        >
+          <span>
+            <img src="/github.png" alt="Github icon" className="w-10" />
+          </span>
+        </a>
       </div>
     </footer>
   );
