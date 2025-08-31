@@ -29,10 +29,7 @@ function Footer() {
             <img src="/linkedIn.png" alt="LinkedIn icon" className="w-10" />
           </span>
         </a>
-        <a
-          href="https://github.com/Lwazi-Masondo/alx-fe-capstone-project"
-          target="_blank"
-        >
+        <a href="https://github.com/Lwazi-Masondo" target="_blank">
           <span>
             <img src="/github.png" alt="Github icon" className="w-10" />
           </span>
