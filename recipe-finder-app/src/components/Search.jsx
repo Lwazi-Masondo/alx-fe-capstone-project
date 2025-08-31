@@ -17,7 +17,7 @@ function Search({ onSubmit }) {
     <div className="flex-1">
       <div>
         <Link to={"/"}>
-          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+          <div className="text-orange-500 mt-5 font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
             {`<`} Back
           </div>
         </Link>

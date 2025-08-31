@@ -32,19 +32,19 @@ function RecipeDetails() {
   return (
     <>
       {" "}
-      <div className="mt-10 w-72">
+      <div className="mt-5 w-72">
         <Link to={"/search"}>
-          <div className="text-orange-500  font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+          <div className="text-orange-500  font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
             {`<`} SEARCH
           </div>
         </Link>
         <Link to={"/favourites"}>
-          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+          <div className="text-orange-500 mt-2 font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
             {`<`} FAVOURITES
           </div>
         </Link>
         <Link to={"/planner"}>
-          <div className="text-orange-500 mt-2 font-bold  ml-10 lg:ml-20  hover:text-lime-200 ">
+          <div className="text-orange-500 mt-2 font-bold  ml-5 lg:ml-20  hover:text-lime-200 ">
             {`<`} PLANNER
           </div>
         </Link>
