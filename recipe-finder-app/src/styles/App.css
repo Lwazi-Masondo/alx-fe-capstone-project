@@ -13,46 +13,46 @@ footer {
 }
 
 .btn-primary {
-  background-color: #cbf078;
+  background-color: #f97316;
   border-radius: 5px;
   color: black;
   padding: 5px 10px;
-  width: 90px;
+  width: 100px;
   text-align: center;
 }
 
 .btn-primary:hover {
   cursor: pointer;
-  background-color: #f97316;
+  background-color: #cbf078;
 }
 
 .act-button {
-  background-color: #f97316;
+  background-color: #cbf078;
   border-radius: 5px;
   color: black;
   padding: 5px 10px;
-  width: 90px;
+  width: 100px;
   text-align: center;
 }
 
 .btn-secondary {
-  background-color: #cbf078;
+  background-color: #f97316;
   color: black;
   padding: 5px 10px;
-  width: 90px;
+  width: 200px;
   text-align: center;
 }
 
 .btn-secondary:hover {
   cursor: pointer;
-  background-color: #f97316;
+  background-color: #cbf078;
 }
 
 .act-button-sec {
-  background-color: #f97316;
+  background-color: #cbf078;
   color: black;
   padding: 5px 10px;
-  width: 90px;
+  width: 200px;
   text-align: center;
 }
 

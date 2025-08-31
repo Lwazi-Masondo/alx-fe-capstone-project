@@ -14,7 +14,7 @@ function RecipeResults() {
   // //User searched but, api returned no results
   if (!meals.length && hasSearched) {
     return (
-      <div>
+      <div className="mb-20">
         <img src="/empty_bowl.png" alt="Empty Bowl" className="w-48 m-auto" />
         <p className="text-red-600 text-center font-bold">
           No meals found. Try another search.
