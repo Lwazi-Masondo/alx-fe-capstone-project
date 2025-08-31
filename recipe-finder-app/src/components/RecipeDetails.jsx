@@ -79,7 +79,7 @@ function RecipeDetails() {
         <h2 className="text-center text-xl font-bold mt-10 mb-5 text-orange-500">
           Instructions
         </h2>
-        <p className="mx-20 mb-10 ">{meal.strInstructions}</p>
+        <p className=" mx-5 md:mx-10 mb-10 ">{meal.strInstructions}</p>
       </div>
     </>
   );
