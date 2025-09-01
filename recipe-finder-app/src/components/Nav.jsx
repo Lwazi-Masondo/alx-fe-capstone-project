@@ -7,7 +7,7 @@ function Nav() {
 
   return (
     <nav>
-      <div className="hidden md:flex gap-5 md:mx-20">
+      <div className="hidden md:flex gap-5 md:mx-5 md:my-5">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -46,7 +46,7 @@ function Nav() {
 
       <div className="flex flex-col">
         {/* Mobile Menu Button */}
-        <div className="md:hidden mx-5 self-end mb-3">
+        <div className="md:hidden mx-2 self-end mb-3">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col justify-between w-6 h-6 focus:outline-none "
