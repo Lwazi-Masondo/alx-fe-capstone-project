@@ -1,6 +1,6 @@
 # RECIPE FINDER APP - PALATE PLANNER
 
-This Capstone project was developed as part of my Front-End Development program at ALX Africa. It’s a recipe finder application with a unique twist — users can search for recipes, view detailed instructions, and save their favorite recipes to plan for special occasions. The app was built using React.js for the front-end, styled with a combination of Vanilla CSS and TailwindCSS, and is deployed on Vercel for hosting.
+This Capstone project was developed as part of my Front-End Development program at ALX Africa. It’s a recipe finder application with a unique twist, users can search for recipes, view detailed instructions, and save their favorite recipes to plan for special occasions. The app was built using React.js for the front-end, styled with a combination of Vanilla CSS and TailwindCSS, and is deployed on Vercel for hosting.
 
 ## Functions 
 * Search Function - Helps users Find recipes using an ingrediant or name of a particular dish.
