@@ -1,15 +1,15 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 import {
   fetchRecipes,
   fetchCategories,
   fetchByCategory,
 } from "../services/themealdbservices";
+import { persist } from "zustand/middleware";
 
 const useSearchStore = create(
   persist(
     (set, get) => ({
-      query: "", //to capture user input
+      query: "", //capture user input
       meals: [],
       categories: [],
       recipes: [],
