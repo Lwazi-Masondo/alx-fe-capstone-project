@@ -46,7 +46,7 @@ function Nav() {
 
       <div className="flex flex-col">
         {/* Mobile Menu Button */}
-        <div className="md:hidden mx-2 self-end mb-4">
+        <div className="md:hidden mx-2 self-end mb-3">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col justify-between w-6 h-6 focus:outline-none "
