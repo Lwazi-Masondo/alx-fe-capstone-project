@@ -1,9 +1,9 @@
 function Footer() {
   return (
     <footer className=" flex flex-col md:flex-row gap-5 justify-between py-2.5 px-5 text-center items-center bg-amber-300 w-full">
-      <img src="/logo_dark.png" alt="logo" className=" w-20 md:w-28" />
+      <img src="/logo_dark.png" alt="logo" className=" w-20 md:w-24" />
       <p className="font-bold text-sm md:text-base">
-        ©Pallet Planner 2025 coded by Nolwazi Masondo and open-sourced on
+        ©PalatePlanner 2025 coded by Nolwazi Masondo and open-sourced on
         <a
           href="https://github.com/Lwazi-Masondo/alx-fe-capstone-project"
           target="_blank"
