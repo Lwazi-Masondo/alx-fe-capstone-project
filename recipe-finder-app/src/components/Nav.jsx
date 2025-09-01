@@ -46,7 +46,7 @@ function Nav() {
 
       <div className="flex flex-col">
         {/* Mobile Menu Button */}
-        <div className="md:hidden mx-2 self-end mb-3">
+        <div className="md:hidden mx-2 self-end mb-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col justify-between w-6 h-6 focus:outline-none "
@@ -71,7 +71,7 @@ function Nav() {
 
         {/* Mobile Dropdown menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mt-2 ${
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mt-2.5 ${
             isOpen
               ? "max-h-60 opacity-100 "
               : "max-h-0 opacity-0 translate-x-25"
