@@ -74,7 +74,7 @@ header {
   }
 }
 
-appear {
+.appear {
   opacity: 0;
   animation: appear 1s ease-in-out forwards;
   animation-delay: 1s;
