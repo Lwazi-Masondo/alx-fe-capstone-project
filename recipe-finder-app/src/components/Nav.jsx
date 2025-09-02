@@ -71,7 +71,7 @@ function Nav() {
 
         {/* Mobile Dropdown menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mt-2.5 ${
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-lime-200  mt-2.5 z-10 ${
             isOpen
               ? "max-h-60 opacity-100 "
               : "max-h-0 opacity-0 translate-x-25"
