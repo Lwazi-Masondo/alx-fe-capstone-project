@@ -13,6 +13,11 @@ function Search({ onSubmit }) {
     fetchMeals();
   };
 
+  if (!query) {
+    setError("Please Enter a value first");
+    return;
+  }
+
   return (
     <div className="flex-1">
       <div>
@@ -44,6 +49,9 @@ function Search({ onSubmit }) {
       <div>
         <FilterFoods />
       </div>
+      {error && (
+        <p className="text-red-600 text-center font-bold my-5">{error}</p>
+      )}
       <RecipeResults />
     </div>
   );
