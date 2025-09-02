@@ -62,7 +62,7 @@ header {
 
 .scale-in {
   transform: scalex(0);
-  animation: scale-in 250ms ease-in-out forwards;
+  animation: scale-in 1s ease-in-out forwards;
 }
 
 @keyframes scale-in {
@@ -76,8 +76,8 @@ header {
 
 appear {
   opacity: 0;
-  animation: appear 250ms ease-in-out forwards;
-  animation-delay: 250ms;
+  animation: appear 1s ease-in-out forwards;
+  animation-delay: 1s;
 }
 
 @keyframes appear {
